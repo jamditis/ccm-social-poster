@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Access restricted — CCM Social Poster</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #1e2d3d;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: 440px;
+      text-align: center;
+    }
+
+    /* CCM Social wordmark */
+    .wordmark {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 2.5rem;
+    }
+
+    .wordmark-icon {
+      width: 44px;
+      height: 44px;
+      background: #e67e22;
+      border-radius: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .wordmark-text {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: white;
+      letter-spacing: -0.01em;
+    }
+
+    .wordmark-sub {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.45);
+      font-weight: 400;
+      margin-top: 1px;
+    }
+
+    /* Card */
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.35);
+    }
+
+    .icon-ring {
+      width: 64px;
+      height: 64px;
+      background: #fff7ed;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.25rem;
+    }
+
+    h1 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 0.75rem;
+    }
+
+    p {
+      font-size: 0.9375rem;
+      color: #6b7280;
+      line-height: 1.6;
+      margin-bottom: 0.5rem;
+    }
+
+    p:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .domain-badge {
+      display: inline-block;
+      background: #f0f4f8;
+      color: #1e2d3d;
+      font-family: monospace;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 6px;
+      margin: 0.25rem 0;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid #e5e7eb;
+      margin: 1.5rem 0;
+    }
+
+    .contact {
+      font-size: 0.875rem;
+      color: #9ca3af;
+    }
+
+    .contact a {
+      color: #1e2d3d;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .contact a:hover {
+      text-decoration: underline;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 1.5rem;
+      padding: 0.625rem 1.25rem;
+      background: #1e2d3d;
+      color: white;
+      font-size: 0.875rem;
+      font-weight: 600;
+      border-radius: 8px;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: background 0.15s;
+    }
+
+    .back-btn:hover {
+      background: #2d4057;
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 2rem;
+      font-size: 0.8125rem;
+      color: rgba(255,255,255,0.35);
+      line-height: 1.6;
+    }
+
+    .footer strong {
+      color: rgba(255,255,255,0.55);
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <div class="wordmark">
+      <div class="wordmark-icon">
+        <svg width="26" height="26" viewBox="0 0 32 32" fill="none">
+          <rect x="4" y="8"    width="24" height="3"   rx="1.5" fill="white"/>
+          <rect x="4" y="14.5" width="16" height="3"   rx="1.5" fill="white"/>
+          <rect x="4" y="21"   width="20" height="3"   rx="1.5" fill="white" opacity="0.6"/>
+        </svg>
+      </div>
+      <div>
+        <div class="wordmark-text">CCM Social</div>
+        <div class="wordmark-sub">Center for Cooperative Media</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="icon-ring">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#e67e22" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="12" y1="8" x2="12" y2="12"/>
+          <line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
+      </div>
+
+      <h1>Your account isn't authorized</h1>
+      <p>
+        This tool is restricted to Center for Cooperative Media staff.<br>
+        Sign in with a <span class="domain-badge">@montclair.edu</span> Google account to continue.
+      </p>
+
+      <hr class="divider">
+
+      <p class="contact">
+        Need access? Contact
+        <a href="mailto:amditis@montclair.edu">Joe Amditis</a>.
+      </p>
+
+      <button class="back-btn" onclick="window.history.back()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+        Go back
+      </button>
+    </div>
+
+    <div class="footer">
+      <strong>CCM Social Poster</strong><br>
+      Center for Cooperative Media · Montclair State University
+    </div>
+
+  </div>
+</body>
+</html>
