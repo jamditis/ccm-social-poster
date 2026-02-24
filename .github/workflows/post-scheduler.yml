@@ -34,6 +34,7 @@ jobs:
 
       - name: Run scheduler
         env:
+          # Direct API credentials (platform adapters)
           TWITTER_API_KEY:       ${{ secrets.TWITTER_API_KEY }}
           TWITTER_API_SECRET:    ${{ secrets.TWITTER_API_SECRET }}
           TWITTER_ACCESS_TOKEN:  ${{ secrets.TWITTER_ACCESS_TOKEN }}
@@ -46,6 +47,13 @@ jobs:
           FACEBOOK_PAGE_TOKEN:   ${{ secrets.FACEBOOK_PAGE_TOKEN }}
           INSTAGRAM_BUSINESS_ID: ${{ secrets.INSTAGRAM_BUSINESS_ID }}
           TIKTOK_ACCESS_TOKEN:   ${{ secrets.TIKTOK_ACCESS_TOKEN }}
+          # Zapier webhook fallbacks (used when direct API creds are absent)
+          ZAPIER_WEBHOOK_TWITTER:   ${{ secrets.ZAPIER_WEBHOOK_TWITTER }}
+          ZAPIER_WEBHOOK_LINKEDIN:  ${{ secrets.ZAPIER_WEBHOOK_LINKEDIN }}
+          ZAPIER_WEBHOOK_FACEBOOK:  ${{ secrets.ZAPIER_WEBHOOK_FACEBOOK }}
+          ZAPIER_WEBHOOK_INSTAGRAM: ${{ secrets.ZAPIER_WEBHOOK_INSTAGRAM }}
+          ZAPIER_WEBHOOK_TIKTOK:    ${{ secrets.ZAPIER_WEBHOOK_TIKTOK }}
+          ZAPIER_WEBHOOK_BLUESKY:   ${{ secrets.ZAPIER_WEBHOOK_BLUESKY }}
         run: python scripts/run-scheduler.py
 
       - name: Commit updated data files

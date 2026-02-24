@@ -23,6 +23,7 @@ from platforms.linkedin  import LinkedInPlatform
 from platforms.facebook  import FacebookPlatform
 from platforms.instagram import InstagramPlatform
 from platforms.tiktok    import TikTokPlatform
+from platforms.zapier    import ZapierPlatform
 
 SCHEDULE_FILE = Path(__file__).parent.parent / 'data' / 'schedule.json'
 HISTORY_FILE  = Path(__file__).parent.parent / 'data' / 'history.json'
@@ -73,16 +74,23 @@ def main() -> int:
 
     print(f'{len(due)} post(s) due.')
 
-    # Initialize platforms that have credentials
+    # Initialize platforms that have credentials.
+    # Zapier webhook is used as a fallback when direct API creds are absent.
     active: dict = {}
     for name, cls in ALL_PLATFORMS.items():
         try:
             instance = cls()
             if instance.is_configured():
                 active[name] = instance
-                print(f'  Platform ready: {name}')
+                print(f'  Platform ready: {name} (direct API)')
             else:
-                print(f'  Platform skipped (not configured): {name}')
+                # Try Zapier fallback
+                zap = ZapierPlatform(name)
+                if zap.is_configured():
+                    active[name] = zap
+                    print(f'  Platform ready: {name} (via Zapier)')
+                else:
+                    print(f'  Platform skipped (not configured): {name}')
         except Exception as e:
             print(f'  Platform init error ({name}): {e}')
 
