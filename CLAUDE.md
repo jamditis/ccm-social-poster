@@ -62,7 +62,7 @@ Each platform has a `scripts/platforms/<name>.py` with a class extending `BasePl
 | `ZAPIER_WEBHOOK_INSTAGRAM` | Pending |
 | `ZAPIER_WEBHOOK_TIKTOK` | Pending |
 
-Zapier Zaps live in the CCM Zapier account (`amditisj@montclair.edu`). The trigger for all of them is "Webhooks by Zapier → Catch Hook". Each Zap's action maps fields from the JSON payload the scheduler sends.
+Zapier Zaps live in the CCM Zapier account. The trigger for all of them is "Webhooks by Zapier → Catch Hook". Each Zap's action maps fields from the JSON payload the scheduler sends.
 
 ## Zapier payload fields
 
