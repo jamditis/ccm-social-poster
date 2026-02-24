@@ -219,7 +219,7 @@ function SettingsModal({ currentToken, onSave, onClose }) {
             disabled=${!val.trim()}
             style=${{
               padding: '0.625rem 1.25rem', border: 'none', borderRadius: '8px',
-              background: val.trim() ? '#1e2d3d' : '#e5e7eb',
+              background: val.trim() ? '#0a0a0a' : '#e5e7eb',
               color: val.trim() ? 'white' : '#9ca3af',
               cursor: val.trim() ? 'pointer' : 'not-allowed',
               fontSize: '0.875rem', fontWeight: '600',
@@ -408,7 +408,7 @@ function ComposeView({ token, schedule, sha, onUpdate }) {
         disabled=${!canSubmit}
         style=${{
           padding: '0.75rem 1.75rem', border: 'none', borderRadius: '8px',
-          background: canSubmit ? '#1e2d3d' : '#e5e7eb',
+          background: canSubmit ? '#0a0a0a' : '#e5e7eb',
           color: canSubmit ? 'white' : '#9ca3af',
           fontSize: '0.9375rem', fontWeight: '600',
           cursor: canSubmit ? 'pointer' : 'not-allowed',
@@ -495,7 +495,7 @@ function AccountsView() {
         Add credentials as GitHub Actions secrets at${' '}
         <a href="https://github.com/${REPO_OWNER}/${REPO_NAME}/settings/secrets/actions"
            target="_blank" rel="noreferrer"
-           style="color:#1e2d3d;font-weight:500;">repo Settings → Secrets and variables → Actions</a>.
+           style="color:#0a0a0a;font-weight:500;">repo Settings → Secrets and variables → Actions</a>.
         The scheduler reads them automatically.
       </p>
       ${ACCOUNT_META.map(({ id, secrets, status, docsUrl }) => {
@@ -529,7 +529,7 @@ function AccountsView() {
               </div>
             </div>
             <a href=${docsUrl} target="_blank" rel="noreferrer" style=${{
-              fontSize: '0.8125rem', color: '#1e2d3d', textDecoration: 'none',
+              fontSize: '0.8125rem', color: '#0a0a0a', textDecoration: 'none',
               border: '1px solid #d1d5db', borderRadius: '6px',
               padding: '0.375rem 0.75rem', whiteSpace: 'nowrap', flexShrink: 0,
             }}>Setup →</a>
@@ -581,21 +581,20 @@ function App() {
   ];
 
   return html`
-    <div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;min-height:100vh;background:#f0f4f8;">
+    <div style="font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;min-height:100vh;background:#f5f5f5;">
 
       <header style=${{
-        background: '#1e2d3d', color: 'white', height: '54px',
+        background: '#0a0a0a', color: 'white', height: '54px',
         padding: '0 1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
         position: 'sticky', top: 0, zIndex: 50,
       }}>
-        <div style="display:flex;align-items:center;gap:0.625rem;">
-          <svg width="26" height="26" viewBox="0 0 32 32" fill="none">
-            <rect width="32" height="32" rx="7" fill="#e67e22"/>
-            <rect x="7" y="10"   width="18" height="2.5" rx="1.25" fill="white"/>
-            <rect x="7" y="14.75" width="12" height="2.5" rx="1.25" fill="white"/>
-            <rect x="7" y="19.5" width="15" height="2.5" rx="1.25" fill="white" opacity="0.6"/>
+        <div style="display:flex;align-items:center;gap:0.75rem;">
+          <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+            <rect width="32" height="32" rx="6" fill="#0a0a0a"/>
+            <text x="16" y="20.5" font-family="'DM Sans',system-ui,sans-serif" font-size="11" font-weight="700" fill="#CA3553" text-anchor="middle" letter-spacing="0.5">CCM</text>
+            <rect x="8" y="24" width="16" height="1.5" rx="0.75" fill="#D4AF37"/>
           </svg>
-          <span style="font-weight:700;font-size:0.9375rem;letter-spacing:-0.01em;">CCM Social</span>
+          <span style="font-weight:700;font-size:0.9375rem;letter-spacing:-0.01em;font-family:'DM Sans',sans-serif;">CCM Social</span>
         </div>
         <button
           onClick=${() => setShowSettings(true)}
@@ -622,9 +621,9 @@ function App() {
               onClick=${() => setView(item.id)}
               style=${{
                 width: '100%', padding: '0.625rem 1.25rem', border: 'none',
-                borderLeft: view === item.id ? '3px solid #1e2d3d' : '3px solid transparent',
-                background: view === item.id ? '#f0f4f8' : 'transparent',
-                color: view === item.id ? '#1e2d3d' : '#6b7280',
+                borderLeft: view === item.id ? '3px solid #0a0a0a' : '3px solid transparent',
+                background: view === item.id ? '#f5f5f5' : 'transparent',
+                color: view === item.id ? '#0a0a0a' : '#6b7280',
                 fontWeight: view === item.id ? '600' : '400',
                 fontSize: '0.9375rem', cursor: 'pointer', textAlign: 'left',
                 display: 'flex', alignItems: 'center', justifyContent: 'space-between',
@@ -633,7 +632,7 @@ function App() {
               ${item.label}
               ${item.badge > 0 && html`
                 <span style=${{
-                  background: '#1e2d3d', color: 'white', borderRadius: '10px',
+                  background: '#0a0a0a', color: 'white', borderRadius: '10px',
                   fontSize: '0.75rem', fontWeight: '700', padding: '1px 7px',
                 }}>${item.badge}</span>
               `}
