@@ -2,11 +2,11 @@
 """
 CCM Social Poster scheduler.
 
-Reads data/schedule.json, posts any items due within the past 6 minutes
+Reads data/schedule.json, posts any items due within the past 16 minutes
 (to account for GitHub Actions schedule drift), updates status, and moves
 completed posts to data/history.json.
 
-Run by GitHub Actions every 5 minutes.
+Run by GitHub Actions every 15 minutes.
 """
 
 import json
@@ -28,8 +28,8 @@ from platforms.zapier    import ZapierPlatform
 SCHEDULE_FILE = Path(__file__).parent.parent / 'data' / 'schedule.json'
 HISTORY_FILE  = Path(__file__).parent.parent / 'data' / 'history.json'
 
-# Look back 6 minutes to catch any posts that GitHub Actions may have delayed
-LOOKBACK = timedelta(minutes=6)
+# Look back 16 minutes to catch any posts that GitHub Actions may have delayed
+LOOKBACK = timedelta(minutes=16)
 
 ALL_PLATFORMS = {
     'twitter':   TwitterPlatform,
